@@ -1,0 +1,25 @@
+{
+    "task_id": "sales_revenue_calculation",
+    "title": "Sales Revenue Calculation",
+    "description": "Using the provided product sales spreadsheet, calculate the total revenue for each row by multiplying Quantity by Unit_Price. Add a new column 'Revenue' with the computed values.",
+    "instructions": [
+        "Open the sales_data.ods spreadsheet in the workspace.",
+        "The spreadsheet contains columns: Product, Category, Quantity, Unit_Price.",
+        "Add a new column E called 'Revenue' that equals Quantity * Unit_Price for every data row.",
+        "Round each Revenue value to 2 decimal places.",
+        "Save the result as sales_data.ods (overwrite in place)."
+    ],
+    "starting_files": [
+        "sales_data.ods"
+    ],
+    "oracle_file": "expected_revenue.ods",
+    "grading": {
+        "numeric_tolerance": 0.01,
+        "check_formulas": false,
+        "sheets_to_check": ["Sheet1"],
+        "pass_threshold": 0.95
+    },
+    "timeout_seconds": 300,
+    "difficulty": "easy",
+    "tags": ["spreadsheet", "arithmetic", "sales"]
+}

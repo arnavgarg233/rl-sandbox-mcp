@@ -1,0 +1,26 @@
+{
+    "task_id": "banking_reserve_calculation",
+    "title": "Banking Reserve Calculation",
+    "description": "Using the provided cash flow spreadsheet, calculate the required reserves for each period using linear interpolation between known rate points. Add a new column 'Required Reserve' that applies the interpolated reserve rate to each period's cash flow amount.",
+    "instructions": [
+        "Open the cash_flows.ods spreadsheet in the workspace.",
+        "The spreadsheet contains columns: Period, Cash_Flow_Amount, Rate_Point (some cells are empty).",
+        "For rows where Rate_Point is provided, use that value directly.",
+        "For rows where Rate_Point is empty, interpolate linearly between the nearest known Rate_Point values above and below.",
+        "Add a new column D called 'Required_Reserve' that equals Cash_Flow_Amount * Interpolated_Rate.",
+        "Save the result as cash_flows.ods (overwrite in place)."
+    ],
+    "starting_files": [
+        "cash_flows.ods"
+    ],
+    "oracle_file": "expected_reserves.ods",
+    "grading": {
+        "numeric_tolerance": 0.01,
+        "check_formulas": false,
+        "sheets_to_check": ["Sheet1"],
+        "pass_threshold": 0.95
+    },
+    "timeout_seconds": 300,
+    "difficulty": "medium",
+    "tags": ["spreadsheet", "interpolation", "finance"]
+}

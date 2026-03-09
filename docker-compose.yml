@@ -1,0 +1,31 @@
+services:
+  sandbox:
+    build:
+      context: .
+      dockerfile: sandbox/Dockerfile
+    image: mcp-sandbox
+    container_name: mcp-sandbox
+    volumes:
+      - ./shared:/workspace
+      - ./mcp_server:/app
+    ports:
+      - "127.0.0.1:8080:8080"
+    dns: 0.0.0.0
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_ADMIN
+      - SETUID
+      - SETGID
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 256
+    mem_limit: 2g
+    cpus: 2.0
+    environment:
+      - MCP_HOST=0.0.0.0
+      - MCP_PORT=8080
+      - TASK_TIMEOUT=300
+      - LAUNCH_LIBREOFFICE=1
+      - DISPLAY=:99
+    restart: "no"
